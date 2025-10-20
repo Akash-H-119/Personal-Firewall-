@@ -1,8 +1,6 @@
 import React, { ReactNode } from "react";
 
-type Props = {
-  children: ReactNode;
-};
+type Props = { children: ReactNode };
 
 const DashboardLayout = ({ children }: Props) => {
   return (

@@ -5,6 +5,18 @@ import { Badge } from "@/components/ui/badge";
 import { Search, AlertTriangle, Shield, Info } from "lucide-react";
 import { useState } from "react";
 
+
+const Logs = () => {
+  return (
+    <DashboardLayout>
+      <div>Logs page content</div>
+    </DashboardLayout>
+  );
+};
+
+export default Logs;
+
+
 interface LogEntry {
   id: number;
   timestamp: string;

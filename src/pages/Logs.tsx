@@ -22,7 +22,7 @@ const mockLogs: LogEntry[] = [
   { id: 5, timestamp: "2025-10-16 13:42:09", severity: "medium", event: "Failed Authentication", source: "172.16.0.33", details: "Multiple failed SSH login attempts" },
 ];
 
-export default function Logs() {
+export default function LogsPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const filteredLogs = mockLogs.filter(log =>

@@ -1,14 +1,47 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
-type Props = { children: ReactNode };
+interface DashboardLayoutProps {
+  children: React.ReactNode;
+}
 
-const DashboardLayout = ({ children }: Props) => {
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <div style={{ padding: "20px", background: "#f5f5f5" }}>
-      <h1>Dashboard</h1>
-      <div>{children}</div>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      {/* Sidebar */}
+      <aside className="w-64 h-screen fixed bg-white dark:bg-gray-800 shadow-md">
+        <div className="p-6 text-xl font-bold text-gray-900 dark:text-white">
+          Personal Firewall
+        </div>
+        <nav className="mt-6">
+          <ul className="space-y-2">
+            <li>
+              <a href="/dashboard" className="block px-6 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+                Dashboard
+              </a>
+            </li>
+            <li>
+              <a href="/monitor" className="block px-6 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+                Monitor
+              </a>
+            </li>
+            <li>
+              <a href="/rules" className="block px-6 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+                Rules
+              </a>
+            </li>
+            <li>
+              <a href="/logs" className="block px-6 py-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
+                Logs
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      {/* Main content */}
+      <main className="ml-64 p-8">
+        {children}
+      </main>
     </div>
   );
-};
-
-export default DashboardLayout;
+}

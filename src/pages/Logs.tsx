@@ -60,4 +60,55 @@ export default function Logs() {
         <Card className="border-border bg-card/50 mb-6">
           <CardContent className="p-6">
             <div className="relative">
-              <
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                placeholder="Search logs by event, source, or details..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+          </CardContent>
+        </Card>
+
+        <div className="space-y-4">
+          {filteredLogs.map((log) => (
+            <Card key={log.id} className="border-border bg-card/50 hover:bg-card transition-all duration-300">
+              <CardHeader>
+                <div className="flex items-start justify-between">
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center ${getSeverityColor(log.severity)}`}>
+                      {getSeverityIcon(log.severity)}
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg text-foreground mb-1">{log.event}</CardTitle>
+                      <p className="text-sm text-muted-foreground">{log.timestamp}</p>
+                    </div>
+                  </div>
+                  <Badge variant={
+                    log.severity === "high" ? "destructive" :
+                    log.severity === "medium" ? "default" : "secondary"
+                  }>
+                    {log.severity}
+                  </Badge>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <p className="text-xs text-muted-foreground mb-1">Source</p>
+                    <p className="text-sm font-mono text-foreground">{log.source}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-muted-foreground mb-1">Details</p>
+                    <p className="text-sm text-foreground">{log.details}</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </DashboardLayout>
+  );
+}

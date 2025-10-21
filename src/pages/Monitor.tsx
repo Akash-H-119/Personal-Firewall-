@@ -3,6 +3,15 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
 import { Activity, ArrowDown, ArrowUp } from "lucide-react";
+import DashboardLayout from "@/components/DashboardLayout";
+
+export default function Monitor() {
+  return (
+    <DashboardLayout>
+      <div className="text-3xl font-bold text-foreground p-8">Monitor Page</div>
+    </DashboardLayout>
+  );
+}
 
 interface Packet {
   id: number;

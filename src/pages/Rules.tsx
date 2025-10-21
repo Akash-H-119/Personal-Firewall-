@@ -7,6 +7,15 @@ import { Badge } from "@/components/ui/badge";
 import { Plus, Search, Trash2, Edit } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import DashboardLayout from "@/components/DashboardLayout";
+
+export default function Rules() {
+  return (
+    <DashboardLayout>
+      <div className="text-3xl font-bold text-foreground p-8">Rules Page</div>
+    </DashboardLayout>
+  );
+}
 
 interface Rule {
   id: number;

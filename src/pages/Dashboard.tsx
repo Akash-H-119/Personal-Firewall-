@@ -1,5 +1,5 @@
-import { DashboardLayout } from "@/components/DashboardLayout";
-import { StatCard } from "../components/StatCard";
+import DashboardLayout from "@/components/DashboardLayout"; // ✅ default import
+import { StatCard } from "@/components/StatCard";
 import { Shield, AlertTriangle, CheckCircle, Activity } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useEffect, useState } from "react";
@@ -95,7 +95,7 @@ export default function Dashboard() {
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
-                {[
+                {[ 
                   { time: "2 min ago", event: "Blocked suspicious IP", type: "danger" },
                   { time: "5 min ago", event: "New rule activated", type: "success" },
                   { time: "12 min ago", event: "Port scan detected", type: "warning" },
